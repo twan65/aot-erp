@@ -15,7 +15,14 @@ public class MemberController {
 
     @GetMapping("/m/search")
     public String findAllMembers(Model model) {
+        // TODO
 //        model.addAttribute("members", memberService.findAll());
         return ViewNames.MEMBER_SEARCH_PATH;
+    }
+
+    @GetMapping("/m/save")
+    public String saveMember(Model model) {
+        // TODO
+        return ViewNames.MEMBER_SAVE_PATH;
     }
 }
