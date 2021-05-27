@@ -22,7 +22,6 @@ public class MemberController {
 
     @GetMapping("/m/save")
     public String saveMember(Model model) {
-        // TODO
         return ViewNames.MEMBER_SAVE_PATH;
     }
 }
