@@ -6,6 +6,7 @@ import lombok.Getter;
 import lombok.NoArgsConstructor;
 
 import javax.persistence.*;
+import java.time.LocalDate;
 
 @Getter
 @NoArgsConstructor
@@ -18,6 +19,12 @@ public class Members extends BaseTimeEntity {
 
     @Column(length = 50, nullable = false)
     private String email;
+
+    @Column(length = 1, nullable = false)
+    private long employmentType;
+
+    @Column(nullable = false)
+    private LocalDate enteredDate;
 
     @Column(length = 1, nullable = false)
     private long department;
@@ -47,9 +54,11 @@ public class Members extends BaseTimeEntity {
     private boolean isDeleted;
 
     @Builder
-    public Members(String email, String name, Long department, Long position, Long age, Long sex, Long nationality) {
+    public Members(String email, String name, Long employmentType, LocalDate enteredDate, Long department, Long position, Long age, Long sex, Long nationality) {
         this.email = email;
         this.name = name;
+        this.employmentType = employmentType;
+        this.enteredDate = enteredDate;
         this.department = department;
         this.position = position;
         this.age = age;

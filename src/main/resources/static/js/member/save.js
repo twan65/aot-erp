@@ -10,13 +10,14 @@ var save = {
         var data = {
             email: $('#email-id').val(),
             name: $('#name-id').val(),
+            employmentType: $('#employmentType-id').val(),
+            enteredDate: $('#enteredDate-id').val(),
             department: $('#department-id').val(),
             position: $('#position-id').val(),
             age: $('#age-id').val(),
             sex: $('#sex-id').val(),
             nationality: $('#nationality-id').val(),
         };
-        console.log(data);
 
         $.ajax({
             type: 'POST',

@@ -36,34 +36,99 @@
         </div>
       </div>
 
-      <!-- Basic Horizontal form layout section start -->
-      <section id="basic-horizontal-layouts">
+      <section id="multiple-column-form">
         <div class="row match-height">
-          <div class="col-md-12 col-12">
+          <div class="col-12">
             <div class="card">
+              <div class="card-header">
+                <h4 class="card-title">全ての項目は必須です。</h4>
+              </div>
               <div class="card-content">
                 <div class="card-body">
-                  <form class="form form-horizontal">
-                    <div class="form-body">
-                      <div class="row">
-                        <div class="col-md-2">
-                          <label>メールアドレス</label>
+                  <form class="form">
+                    <div class="row">
+                      <div class="col-md-6 col-12">
+                        <div class="form-group">
+                          <label for="email-id">メールアドレス</label>
+                          <input type="text" id="email-id" class="form-control"
+                                 placeholder="email" name="email">
                         </div>
-                        <div class="col-md-10 form-group">
-                          <input type="email" id="email-id" class="form-control"
-                                 name="email" placeholder="Email">
-                        </div>
-                        <div class="col-md-2">
-                          <label>名前</label>
-                        </div>
-                        <div class="col-md-10 form-group">
+                      </div>
+
+                      <div class="col-md-6 col-12">
+                        <div class="form-group">
+                          <label for="name-id">名前</label>
                           <input type="text" id="name-id" class="form-control"
-                                 name="name" placeholder="Name">
+                                 placeholder="name" name="name">
                         </div>
-                        <div class="col-md-2">
-                          <label>部署</label>
+                      </div>
+
+                      <div class="col-md-6 col-12">
+                        <div class="form-group">
+                          <label for="sex-id">性別</label>
+                          <fieldset class="form-group">
+                            <select class="form-select" id="sex-id" name="sex">
+                              <option value="-1"></option>
+                              <option value="1">男性</option>
+                              <option value="2">女性</option>
+                              <option value="3">その他</option>
+                            </select>
+                          </fieldset>
                         </div>
-                          <fieldset class="col-md-10 form-group">
+                      </div>
+
+                      <div class="col-md-6 col-12">
+                        <div class="form-group">
+                          <label for="age-id">年齢</label>
+                          <input type="number" id="age-id" class="form-control"
+                                 name="age" placeholder="Age">
+                        </div>
+                      </div>
+
+                      <div class="col-md-6 col-12">
+                        <div class="form-group">
+                          <label for="nationality-id">国籍</label>
+                          <fieldset class="form-group">
+                            <select class="form-select" id="nationality-id" name="nationality">
+                              <option value="-1"></option>
+                              <option value="1">日本</option>
+                              <option value="2">韓国</option>
+                              <option value="3">アメリカ</option>
+                              <option value="4">中国</option>
+                            </select>
+                          </fieldset>
+                        </div>
+                      </div>
+
+                      <div class="col-md-6 col-12">
+                      </div>
+
+                      <div class="col-md-6 col-12">
+                        <div class="form-group">
+                          <label for="employmentType-id">雇用形態</label>
+                          <fieldset class="form-group">
+                            <select class="form-select" id="employmentType-id" name="employmentType">
+                              <option value="-1"></option>
+                              <option value="1">正社員</option>
+                              <option value="2">契約社員</option>
+                              <option value="3">アルバイト</option>
+                            </select>
+                          </fieldset>
+                        </div>
+                      </div>
+
+                      <div class="col-md-6 col-12">
+                        <div class="form-group">
+                          <label for="enteredDate-id">入社日</label>
+                          <input type="text" id="enteredDate-id" class="form-control"
+                                 name="enteredDate" placeholder="Entered Date">
+                        </div>
+                      </div>
+
+                      <div class="col-md-6 col-12">
+                        <div class="form-group">
+                          <label for="department-id">部署</label>
+                          <fieldset class="form-group">
                             <select class="form-select" id="department-id" name="department">
                               <option value="-1"></option>
                               <option value="1">システム開発1部</option>
@@ -71,73 +136,42 @@
                               <option value="3">システム開発3部</option>
                             </select>
                           </fieldset>
+                        </div>
+                      </div>
 
-                        <div class="col-md-2">
-                          <label>役職</label>
+                      <div class="col-md-6 col-12">
+                        <div class="form-group">
+                          <label for="position-id">ポジション</label>
+                          <fieldset class="form-group">
+                            <select class="form-select" id="position-id" name="position">
+                              <option value="-1"></option>
+                              <option value="1">テスター</option>
+                              <option value="2">プログラマー</option>
+                              <option value="3">システムエンジニア</option>
+                              <option value="4">チームリーダー</option>
+                              <option value="5">プロジェクトマネージャー</option>
+                            </select>
+                          </fieldset>
                         </div>
-                        <fieldset class="col-md-10 form-group">
-                          <select class="form-select" id="position-id" name="position">
-                            <option value="-1"></option>
-                            <option value="1">テスター</option>
-                            <option value="2">プログラマー</option>
-                            <option value="3">システムエンジニア</option>
-                            <option value="4">チームリーダー</option>
-                            <option value="5">プロジェクトマネージャー</option>
-                          </select>
-                        </fieldset>
+                      </div>
 
-                        <div class="col-md-2">
-                          <label>年齢</label>
-                        </div>
-                        <div class="col-md-10 form-group">
-                          <input type="number" id="age-id" class="form-control"
-                                 name="age" placeholder="Age">
-                        </div>
-
-                        <div class="col-md-2">
-                          <label>性別</label>
-                        </div>
-                        <div class="col-md-10 form-group">
-                        </div>
-                        <fieldset class="col-md-10 form-group">
-                          <select class="form-select" id="sex-id" name="sex">
-                            <option value="-1"></option>
-                            <option value="1">男性</option>
-                            <option value="2">女性</option>
-                            <option value="3">その他</option>
-                          </select>
-                        </fieldset>
-
-                        <div class="col-md-2">
-                          <label>国籍</label>
-                        </div>
-                        <fieldset class="col-md-10 form-group">
-                          <select class="form-select" id="nationality-id" name="nationality">
-                            <option value="-1"></option>
-                            <option value="1">日本</option>
-                            <option value="2">韓国</option>
-                            <option value="3">アメリカ</option>
-                            <option value="4">中国</option>
-                          </select>
-                        </fieldset>
-                        <div class="col-sm-12 d-flex justify-content-end">
-                          <button type="button"
-                                  class="btn btn-primary me-1 mb-1" id="btn-save">登録</button>
-<!--                          <button type="reset"-->
-<!--                                  class="btn btn-light-secondary me-1 mb-1">Reset</button>-->
-                        </div>
+                      <div class="col-12 d-flex justify-content-end">
+                        <button type="button"
+                                class="btn btn-primary me-1 mb-1" id="btn-save">登録</button>
+<!--                        <button type="reset"-->
+<!--                                class="btn btn-light-secondary me-1 mb-1">Reset</button>-->
                       </div>
                     </div>
                   </form>
                 </div>
               </div>
+
             </div>
           </div>
-         </div>
+        </div>
       </section>
       <!-- // Basic Horizontal form layout section end -->
 
-      <!-- // Basic multiple Column Form section end -->
     </div>
 
   </div>
