@@ -2,6 +2,7 @@ var api = {
     init : function () {
     },
     save : function (url, data, callback) {
+        validation.clearValidationField();
 
         $.ajax({
             type: 'POST',
@@ -13,7 +14,15 @@ var api = {
                 callback();
             }
         }).fail(function(error) {
-            // TODO: validation
+            if (!error) {
+                return;
+            }
+
+            if (error.status == "400" && error.responseJSON && error.responseJSON.errors) {
+                validation.setErrors(error.responseJSON.errors);
+                validation.setValidationField(error.responseJSON.errors)
+                return;
+            }
         });
     }
 };

@@ -52,6 +52,9 @@
                           <label for="email-id">メールアドレス</label>
                           <input type="text" id="email-id" class="form-control"
                                  placeholder="email" name="email">
+                          <div id="email-validation" class="invalid-feedback">
+                            <i class="bx bx-radio-circle"></i>
+                          </div>
                         </div>
                       </div>
 
@@ -60,6 +63,9 @@
                           <label for="name-id">名前</label>
                           <input type="text" id="name-id" class="form-control"
                                  placeholder="name" name="name">
+                          <div id="name-validation" class="invalid-feedback">
+                            <i class="bx bx-radio-circle"></i>
+                          </div>
                         </div>
                       </div>
 
@@ -185,6 +191,7 @@
 <script th:src="@{/js/main.js}"></script>
 
 <script th:src="@{/webjars/jquery/3.5.1/jquery.min.js}"></script>
+<script th:src="@{/js/utils/validation/validation.js}"></script>
 <script th:src="@{/js/utils/api/api.js}"></script>
 <script th:src="@{/js/member/save.js}"></script>
 </body>
