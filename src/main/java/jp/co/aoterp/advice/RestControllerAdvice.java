@@ -17,17 +17,6 @@ import java.util.List;
 @Slf4j
 @org.springframework.web.bind.annotation.RestControllerAdvice
 public class RestControllerAdvice extends ResponseEntityExceptionHandler {
-//
-//    @ExceptionHandler(MethodArgumentNotValidException.class)
-//    public ResponseEntity<> handleException(Exception e) {
-//        log.error("エラー内容：" + e);
-//
-//        return new ResponseEntity<>(ErrorResponseDto.builder()
-//                .errorCode(MessageCode.E00001.getCode())
-//                .errorMessage(messageHelper.getMessage(MessageCode.E00001))
-//                .build(),
-//                HttpStatus.INTERNAL_SERVER_ERROR);
-//    }
 
     @Override
     protected ResponseEntity<Object> handleMethodArgumentNotValid(
@@ -37,10 +26,10 @@ public class RestControllerAdvice extends ResponseEntityExceptionHandler {
             WebRequest request) {
         List<String> errors = new ArrayList<String>();
         for (FieldError error : ex.getBindingResult().getFieldErrors()) {
-            errors.add(error.getField() + ": " + error.getDefaultMessage());
+            errors.add(error.getField() + ":" + error.getDefaultMessage());
         }
         for (ObjectError error : ex.getBindingResult().getGlobalErrors()) {
-            errors.add(error.getObjectName() + ": " + error.getDefaultMessage());
+            errors.add(error.getObjectName() + ":" + error.getDefaultMessage());
         }
 
         ApiError apiError =
