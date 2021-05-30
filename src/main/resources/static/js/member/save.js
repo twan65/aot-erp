@@ -19,16 +19,7 @@ var save = {
             nationality: $('#nationality-id').val(),
         };
 
-        $.ajax({
-            type: 'POST',
-            url: '/api/v1/m',
-            contentType: 'application/json; charset=utf-8',
-            data: JSON.stringify(data)
-        }).done(function(data) {
-            alert('アイデアが登録されました。');
-        }).fail(function(error) {
-            alert(JSON.stringify(error));
-        });
+        api.save('/api/v1/m', data, () => alert('メンバー登録が正常にできました。'));
     }
 };
 
