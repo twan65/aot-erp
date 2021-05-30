@@ -1,0 +1,199 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <title>AOT ERP</title>
+
+  <link rel="preconnect" href="https://fonts.gstatic.com">
+  <link href="https://fonts.googleapis.com/css2?family=Nunito:wght@300;400;600;700;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" th:href="@{/css/bootstrap.css}">
+
+  <link rel="stylesheet" th:href="@{/vendors/perfect-scrollbar/perfect-scrollbar.css}">
+  <link rel="stylesheet" th:href="@{/vendors/bootstrap-icons/bootstrap-icons.css}">
+  <link rel="stylesheet" th:href="@{/css/app.css}">
+  <link rel="shortcut icon" th:href="@{/images/favicon.svg}" type="image/x-icon">
+</head>
+
+<body>
+<div id="app">
+  <th:block th:include="fragments/sidebar"></th:block>
+  <div id="main">
+    <header class="mb-3">
+      <a href="#" class="burger-btn d-block d-xl-none">
+        <i class="bi bi-justify fs-3"></i>
+      </a>
+    </header>
+
+    <div class="page-heading">
+      <div class="page-title">
+        <div class="row">
+          <div class="col-12 col-md-6 order-md-1 order-last">
+            <h3>メンバー登録</h3>
+          </div>
+        </div>
+      </div>
+
+      <section id="multiple-column-form">
+        <div class="row match-height">
+          <div class="col-12">
+            <div class="card">
+              <div class="card-header">
+                <h4 class="card-title">全ての項目は必須です。</h4>
+              </div>
+              <div class="card-content">
+                <div class="card-body">
+                  <form class="form">
+                    <div class="row">
+                      <div class="col-md-6 col-12">
+                        <div class="form-group">
+                          <label for="email-id">メールアドレス</label>
+                          <input type="text" id="email-id" class="form-control"
+                                 placeholder="email" name="email">
+                          <div id="email-validation" class="invalid-feedback">
+                            <i class="bx bx-radio-circle"></i>
+                          </div>
+                        </div>
+                      </div>
+
+                      <div class="col-md-6 col-12">
+                        <div class="form-group">
+                          <label for="name-id">名前</label>
+                          <input type="text" id="name-id" class="form-control"
+                                 placeholder="name" name="name">
+                          <div id="name-validation" class="invalid-feedback">
+                            <i class="bx bx-radio-circle"></i>
+                          </div>
+                        </div>
+                      </div>
+
+                      <div class="col-md-6 col-12">
+                        <div class="form-group">
+                          <label for="sex-id">性別</label>
+                          <fieldset class="form-group">
+                            <select class="form-select" id="sex-id" name="sex">
+                              <option value="-1"></option>
+                              <option value="1">男性</option>
+                              <option value="2">女性</option>
+                              <option value="3">その他</option>
+                            </select>
+                          </fieldset>
+                        </div>
+                      </div>
+
+                      <div class="col-md-6 col-12">
+                        <div class="form-group">
+                          <label for="age-id">年齢</label>
+                          <input type="number" id="age-id" class="form-control"
+                                 name="age" placeholder="Age">
+                        </div>
+                      </div>
+
+                      <div class="col-md-6 col-12">
+                        <div class="form-group">
+                          <label for="nationality-id">国籍</label>
+                          <fieldset class="form-group">
+                            <select class="form-select" id="nationality-id" name="nationality">
+                              <option value="-1"></option>
+                              <option value="1">日本</option>
+                              <option value="2">韓国</option>
+                              <option value="3">アメリカ</option>
+                              <option value="4">中国</option>
+                            </select>
+                          </fieldset>
+                        </div>
+                      </div>
+
+                      <div class="col-md-6 col-12">
+                      </div>
+
+                      <div class="col-md-6 col-12">
+                        <div class="form-group">
+                          <label for="employmentType-id">雇用形態</label>
+                          <fieldset class="form-group">
+                            <select class="form-select" id="employmentType-id" name="employmentType">
+                              <option value="-1"></option>
+                              <option value="1">正社員</option>
+                              <option value="2">契約社員</option>
+                              <option value="3">アルバイト</option>
+                            </select>
+                          </fieldset>
+                        </div>
+                      </div>
+
+                      <div class="col-md-6 col-12">
+                        <div class="form-group">
+                          <label for="enteredDate-id">入社日</label>
+                          <!--           TODO：Datepicker調べること               -->
+                          <input type="text" id="enteredDate-id" class="form-control"
+                                 name="enteredDate" placeholder="Entered Date">
+                        </div>
+                      </div>
+
+                      <div class="col-md-6 col-12">
+                        <div class="form-group">
+                          <label for="department-id">部署</label>
+                          <fieldset class="form-group">
+                            <select class="form-select" id="department-id" name="department">
+                              <option value="-1"></option>
+                              <option value="1">システム開発1部</option>
+                              <option value="2">システム開発2部</option>
+                              <option value="3">システム開発3部</option>
+                            </select>
+                          </fieldset>
+                        </div>
+                      </div>
+
+                      <div class="col-md-6 col-12">
+                        <div class="form-group">
+                          <label for="position-id">ポジション</label>
+                          <fieldset class="form-group">
+                            <select class="form-select" id="position-id" name="position">
+                              <option value="-1"></option>
+                              <option value="1">テスター</option>
+                              <option value="2">プログラマー</option>
+                              <option value="3">システムエンジニア</option>
+                              <option value="4">チームリーダー</option>
+                              <option value="5">プロジェクトマネージャー</option>
+                            </select>
+                          </fieldset>
+                        </div>
+                      </div>
+
+                      <div class="col-12 d-flex justify-content-end">
+                        <button type="button"
+                                class="btn btn-primary me-1 mb-1" id="btn-save">登録</button>
+<!--                        <button type="reset"-->
+<!--                                class="btn btn-light-secondary me-1 mb-1">Reset</button>-->
+                      </div>
+                    </div>
+                  </form>
+                </div>
+              </div>
+
+            </div>
+          </div>
+        </div>
+      </section>
+      <!-- // Basic Horizontal form layout section end -->
+
+    </div>
+
+  </div>
+</div>
+
+
+<script th:src="@{/vendors/perfect-scrollbar/perfect-scrollbar.min.js}"></script>
+<script th:src="@{/js/bootstrap.bundle.min.js}"></script>
+
+<script th:src="@{/js/main.js}"></script>
+
+<script th:src="@{/webjars/jquery/3.5.1/jquery.min.js}"></script>
+<script th:src="@{/js/utils/validation/validation.js}"></script>
+<script th:src="@{/js/utils/api/api.js}"></script>
+<script th:src="@{/js/member/save.js}"></script>
+</body>
+
+</html>

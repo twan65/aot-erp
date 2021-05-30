@@ -9,8 +9,6 @@
     <link href="https://fonts.googleapis.com/css2?family=Nunito:wght@300;400;600;700;800&display=swap" rel="stylesheet">
     <link rel="stylesheet" th:href="@{/css/bootstrap.css}">
 
-    <link rel="stylesheet" th:href="@{/vendors/simple-datatables/style.css}">
-
     <link rel="stylesheet" th:href="@{/vendors/perfect-scrollbar/perfect-scrollbar.css}">
     <link rel="stylesheet" th:href="@{/vendors/bootstrap-icons/bootstrap-icons.css}">
     <link rel="stylesheet" th:href="@{/css/app.css}">
@@ -30,50 +28,63 @@
         <div class="page-title">
             <div class="row">
                 <div class="col-12 col-md-6 order-md-1 order-last">
-                    <h3>DataTable</h3>
-                    <p class="text-subtitle text-muted">For user to check they list</p>
+                    <h3>メンバー一覧</h3>
+<!--                    <p class="text-subtitle text-muted">For user to check they list</p>-->
                 </div>
-                <div class="col-12 col-md-6 order-md-2 order-first">
-                    <nav aria-label="breadcrumb" class="breadcrumb-header float-start float-lg-end">
-                        <ol class="breadcrumb">
-                            <li class="breadcrumb-item"><a href="index.html">Dashboard</a></li>
-                            <li class="breadcrumb-item active" aria-current="page">DataTable</li>
-                        </ol>
-                    </nav>
-                </div>
+<!--                <div class="col-12 col-md-6 order-md-2 order-first">-->
+<!--                    <nav aria-label="breadcrumb" class="breadcrumb-header float-start float-lg-end">-->
+<!--                        <ol class="breadcrumb">-->
+<!--                            <li class="breadcrumb-item"><a href="index.html">Dashboard</a></li>-->
+<!--                            <li class="breadcrumb-item active" aria-current="page">DataTable</li>-->
+<!--                        </ol>-->
+<!--                    </nav>-->
+<!--                </div>-->
             </div>
         </div>
         <section class="section">
-            <div class="card">
-                <div class="card-header">
-                    Simple Datatable
-                </div>
-                <div class="card-body">
-                    <table class="table table-striped" id="table1">
-                        <thead>
-                        <tr>
-                            <th>Name</th>
-                            <th>Email</th>
-                            <th>Phone</th>
-                            <th>City</th>
-                            <th>Status</th>
-                        </tr>
-                        </thead>
-                        <tbody>
-                            <tr>
-                                <td>Graiden</td>
-                                <td>vehicula.aliquet@semconsequat.co.uk</td>
-                                <td>076 4820 8838</td>
-                                <td>Offenburg</td>
-                                <td>
-                                    <span class="badge bg-success">Active</span>
-                                </td>
-                            </tr>
-                        </tbody>
-                    </table>
+            <div class="row" id="table-contexual">
+                <div class="col-12">
+                    <div class="card">
+<!--                        <div class="card-header">-->
+<!--                            <h4 class="card-title">Contextual classes</h4>-->
+<!--                        </div>-->
+                        <div class="card-content">
+<!--                            <div class="card-body">-->
+<!--                                <p>Use contextual classes to color table rows or individual cells. Read full-->
+<!--                                    documnetation-->
+<!--                                </p>-->
+<!--                            </div>-->
+                            <!-- table contextual / colored -->
+                            <div class="table-responsive">
+                                <table class="table mb-0">
+                                    <thead>
+                                    <tr>
+                                        <th>名前</th>
+                                        <th>部署</th>
+                                        <th>役職</th>
+                                        <th>メールアドレス</th>
+                                        <th>性別</th>
+                                        <th>年齢</th>
+                                        <th>国籍</th>
+                                    </tr>
+                                    </thead>
+                                    <tbody>
+                                    <tr class="table-active">
+                                        <td>Michael Right</td>
+                                        <td>システム開発１</td>
+                                        <td>プログラマー</td>
+                                        <td>atnasdsa@asdasd</td>
+                                        <td>Remote</td>
+                                        <td>Austin,Taxes</td>
+                                        <td>Austin,Taxes</td>
+                                    </tr>
+                                    </tbody>
+                                </table>
+                            </div>
+                        </div>
+                    </div>
                 </div>
             </div>
-
         </section>
     </div>
 
@@ -81,13 +92,6 @@
 </div>
 <script th:src="@{/vendors/perfect-scrollbar/perfect-scrollbar.min.js}"></script>
 <script th:src="@{/js/bootstrap.bundle.min.js}"></script>
-
-<script th:src="@{/vendors/simple-datatables/simple-datatables.js}"></script>
-<script>
-        // Simple Datatable
-        let table1 = document.querySelector('#table1');
-        let dataTable = new simpleDatatables.DataTable(table1);
-    </script>
 
 <script th:src="@{/js/main.js}"></script>
 </body>
