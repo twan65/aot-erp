@@ -5,9 +5,7 @@ import lombok.Builder;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 
-import javax.validation.constraints.Email;
-import javax.validation.constraints.NotBlank;
-import javax.validation.constraints.Size;
+import javax.validation.constraints.*;
 import java.time.LocalDate;
 import java.time.format.DateTimeFormatter;
 
@@ -22,26 +20,31 @@ public class MemberSaveRequestDto {
     @NotBlank(message = "{E00002}")
     private String name;
 
-    @Size(min = 1, max = 3, message = "{E00003}")
+    @Min(value = 1, message = "{E00003}")
+    @Max(value = 3, message = "{E00003}")
     private Long employmentType;
 
     // TODO: Localdateに変更
     @NotBlank(message = "{E00002}")
     private String enteredDate;
 
-    @Size(min = 1, max = 3, message = "{E00003}")
+    @Min(value = 1, message = "{E00003}")
+    @Max(value = 3, message = "{E00003}")
     private Long department;
 
-    @Size(min = 1, max = 5, message = "{E00003}")
+    @Min(value = 1, message = "{E00003}")
+    @Max(value = 5, message = "{E00003}")
     private Long position;
 
     // TODO: 生年月日に変更
     private Long age;
 
-    @Size(min = 1, max = 3, message = "{E00003}")
+    @Min(value = 1, message = "{E00003}")
+    @Max(value = 3, message = "{E00003}")
     private Long sex;
 
-    @Size(min = 1, max = 5, message = "{E00003}")
+    @Min(value = 1, message = "{E00003}")
+    @Max(value = 5, message = "{E00003}")
     private Long nationality;
 
     @Builder
