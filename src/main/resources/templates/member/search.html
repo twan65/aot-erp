@@ -17,82 +17,182 @@
 <body>
 <div id="app">
     <th:block th:include="fragments/sidebar"></th:block>
-<div id="main">
-    <header class="mb-3">
-        <a href="#" class="burger-btn d-block d-xl-none">
-            <i class="bi bi-justify fs-3"></i>
-        </a>
-    </header>
+    <div id="main">
+        <header class="mb-3">
+            <a href="#" class="burger-btn d-block d-xl-none">
+                <i class="bi bi-justify fs-3"></i>
+            </a>
+        </header>
 
-    <div class="page-heading">
-        <div class="page-title">
-            <div class="row">
-                <div class="col-12 col-md-6 order-md-1 order-last">
-                    <h3>メンバー一覧</h3>
-<!--                    <p class="text-subtitle text-muted">For user to check they list</p>-->
+        <div class="page-heading">
+            <div class="page-title">
+                <div class="row">
+                    <div class="col-12 col-md-6 order-md-1 order-last">
+                        <h3>メンバー検索</h3>
+                    </div>
                 </div>
-<!--                <div class="col-12 col-md-6 order-md-2 order-first">-->
-<!--                    <nav aria-label="breadcrumb" class="breadcrumb-header float-start float-lg-end">-->
-<!--                        <ol class="breadcrumb">-->
-<!--                            <li class="breadcrumb-item"><a href="index.html">Dashboard</a></li>-->
-<!--                            <li class="breadcrumb-item active" aria-current="page">DataTable</li>-->
-<!--                        </ol>-->
-<!--                    </nav>-->
-<!--                </div>-->
             </div>
-        </div>
-        <section class="section">
-            <div class="row" id="table-contexual">
-                <div class="col-12">
-                    <div class="card">
-<!--                        <div class="card-header">-->
-<!--                            <h4 class="card-title">Contextual classes</h4>-->
-<!--                        </div>-->
-                        <div class="card-content">
-<!--                            <div class="card-body">-->
-<!--                                <p>Use contextual classes to color table rows or individual cells. Read full-->
-<!--                                    documnetation-->
-<!--                                </p>-->
+
+            <section id="multiple-column-form">
+                <div class="row match-height">
+                    <div class="col-12">
+                        <div class="card">
+<!--                            <div class="card-header">-->
+<!--                                <h4 class="card-title">メンバーを検索します。</h4>-->
 <!--                            </div>-->
-                            <!-- table contextual / colored -->
-                            <div class="table-responsive">
-                                <table class="table mb-0">
-                                    <thead>
-                                    <tr>
-                                        <th>名前</th>
-                                        <th>部署</th>
-                                        <th>役職</th>
-                                        <th>メールアドレス</th>
-                                        <th>性別</th>
-                                        <th>年齢</th>
-                                        <th>国籍</th>
-                                    </tr>
-                                    </thead>
-                                    <tbody>
-                                    <tr class="table-active">
-                                        <td>Michael Right</td>
-                                        <td>システム開発１</td>
-                                        <td>プログラマー</td>
-                                        <td>atnasdsa@asdasd</td>
-                                        <td>Remote</td>
-                                        <td>Austin,Taxes</td>
-                                        <td>Austin,Taxes</td>
-                                    </tr>
-                                    </tbody>
-                                </table>
+                            <div class="card-content">
+                                <div class="card-body">
+                                    <form class="form">
+                                        <div class="row">
+
+                                            <div class="col-md-6 col-12">
+                                                <div class="form-group">
+                                                    <label for="name-id">名前</label>
+                                                    <input type="text" id="name-id" class="form-control"
+                                                           placeholder="name" name="Name">
+                                                    <div id="name-validation" class="invalid-feedback">
+                                                        <i class="bx bx-radio-circle"></i>
+                                                    </div>
+                                                </div>
+                                            </div>
+
+                                            <div class="col-md-6 col-12">
+                                                <div class="form-group">
+                                                    <label for="employmentType-id">雇用形態</label>
+                                                    <fieldset class="form-group">
+                                                        <select class="form-select" id="employmentType-id" name="employmentType">
+                                                            <option value="-1"></option>
+                                                            <option value="1">正社員</option>
+                                                            <option value="2">契約社員</option>
+                                                            <option value="3">アルバイト</option>
+                                                        </select>
+                                                    </fieldset>
+                                                </div>
+                                            </div>
+
+                                            <div class="col-md-6 col-12">
+                                                <div class="form-group">
+                                                    <label for="ageFrom-id">年齢</label>
+                                                    <input type="number" id="ageFrom-id" class="form-control"
+                                                           name="ageFrom" placeholder="From">
+                                                </div>
+                                            </div>
+
+                                            <div class="col-md-6 col-12">
+                                                <div class="form-group">
+                                                    <label for="ageTo-id"></label>
+                                                    <input type="number" id="ageTo-id" class="form-control"
+                                                           name="ageTo" placeholder="To">
+                                                </div>
+                                            </div>
+
+                                            <div class="col-md-6 col-12">
+                                                <div class="form-group">
+                                                    <label for="enteredDateFrom-id">入社日</label>
+                                                    <input type="text" id="enteredDateFrom-id" class="form-control"
+                                                           name="enteredDateFrom" placeholder="From">
+                                                </div>
+                                            </div>
+
+                                            <div class="col-md-6 col-12">
+                                                <div class="form-group">
+                                                    <label for="enteredDateTo-id"></label>
+                                                    <input type="text" id="enteredDateTo-id" class="form-control"
+                                                           name="enteredDateTo" placeholder="To">
+                                                </div>
+                                            </div>
+
+                                            <div class="col-md-6 col-12">
+                                                <div class="form-group">
+                                                    <label for="department-id">部署</label>
+                                                    <fieldset class="form-group">
+                                                        <select class="form-select" id="department-id" name="department">
+                                                            <option value="-1"></option>
+                                                            <option value="1">システム開発1部</option>
+                                                            <option value="2">システム開発2部</option>
+                                                            <option value="3">システム開発3部</option>
+                                                        </select>
+                                                    </fieldset>
+                                                </div>
+                                            </div>
+
+                                            <div class="col-12 d-flex justify-content-end">
+                                                <button type="button"
+                                                        class="btn btn-primary me-1 mb-1" id="btn-search">検索</button>
+                                                <button type="reset" class="btn btn-light-secondary me-1 mb-1">クリア</button>
+                                            </div>
+                                        </div>
+                                    </form>
+                                </div>
+                            </div>
+
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <section class="section">
+                <div class="row" id="table-striped">
+                    <div class="col-12">
+                        <div class="card">
+                            <div class="card-header">
+                                <h4 class="card-title">検索結果</h4>
+                            </div>
+                            <div class="card-content">
+
+                                <!-- table striped -->
+                                <div class="table-responsive">
+                                    <table class="table table-striped mb-0">
+                                        <thead>
+                                        <tr>
+                                            <th>メールアドレス</th>
+                                            <th>名前</th>
+                                            <th>部署</th>
+                                            <th>役職</th>
+                                            <th>国籍</th>
+                                            <th>入社日</th>
+                                            <th>雇用形態</th>
+                                        </tr>
+                                        </thead>
+                                        <tbody>
+                                        <tr>
+                                            <td>$15/hr</td>
+                                            <td>$15/hr</td>
+                                            <td>$15/hr</td>
+                                            <td>$15/hr</td>
+                                            <td>$15/hr</td>
+                                            <td>$15/hr</td>
+                                            <td>$15/hr</td>
+                                        </tr>
+                                        <tr>
+                                            <td>$15/hr</td>
+                                            <td>$15/hr</td>
+                                            <td>$15/hr</td>
+                                            <td>$15/hr</td>
+                                            <td>$15/hr</td>
+                                            <td>$15/hr</td>
+                                            <td>$15/hr</td>
+                                        </tr>
+                                        </tbody>
+                                    </table>
+                                </div>
                             </div>
                         </div>
                     </div>
                 </div>
-            </div>
-        </section>
-    </div>
+            </section>
 
-</div>
+        </div>
+    </div>
 </div>
 <script th:src="@{/vendors/perfect-scrollbar/perfect-scrollbar.min.js}"></script>
 <script th:src="@{/js/bootstrap.bundle.min.js}"></script>
 
 <script th:src="@{/js/main.js}"></script>
+
+<script th:src="@{/webjars/jquery/3.5.1/jquery.min.js}"></script>
+<script th:src="@{/js/utils/validation/validation.js}"></script>
+<script th:src="@{/js/utils/api/api.js}"></script>
+<script th:src="@{/js/member/search.js}"></script>
 </body>
 </html>

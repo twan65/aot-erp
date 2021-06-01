@@ -21,7 +21,7 @@ public class MemberApiController {
 
     private final MemberService memberService;
 
-    @PostMapping("/api/v1/m")
+    @PostMapping("/api/v1/m/search")
     public Page<MemberListResponseDto> findAllBy(@RequestBody MemberSearchRequestDto requestDto
             , @PageableDefault(size = 20, sort = "name", direction = Sort.Direction.ASC) Pageable pageable) {
         return memberService.findAllBy(requestDto, pageable);
