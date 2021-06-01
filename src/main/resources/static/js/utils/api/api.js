@@ -24,6 +24,22 @@ var api = {
                 return;
             }
         });
+    },
+    search : function (url, data, callback) {
+        $.ajax({
+            type: 'POST',
+            url: url,
+            contentType: 'application/json; charset=utf-8',
+            data: JSON.stringify(data)
+        }).done(function(data) {
+            if (callback) {
+                callback(data);
+            }
+        }).fail(function(error) {
+            if (!error) {
+                return;
+            }
+        });
     }
 };
 
