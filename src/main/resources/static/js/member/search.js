@@ -3,10 +3,10 @@ var search = {
         var _this = this;
 
         $('#btn-search').on('click', function () {
-            _this.search();
+            _this.search('/api/v1/m/search');
         });
     },
-    search : function () {
+    search : function (url) {
         var data = {
             name: $('#name-id').val(),
             employmentType: $('#employmentType-id').val(),
@@ -17,16 +17,18 @@ var search = {
             ageTo: $('#ageTo-id').val(),
         };
 
-        // TODO: page処理どうするのか
-        api.search('/api/v1/m/search', data, search.showSearchResult);
+        api.search(url, data, search.showSearchResult);
     },
     showSearchResult : function (res) {
+
+        $("#result-body").empty();
+        $("#search-result").hide();
+
         if(!res || !res.content || !res.content.length) {
             // TODO: 検索結果がありません。
         }
 
         const { content } = res;
-        // TODO: データのコード変換
         content.map(memberInfo => {
             $("#result-body").append(`
                 <tr>
@@ -42,6 +44,9 @@ var search = {
         });
 
         $("#search-result").show();
+        pagination.showPagination(res.first, res.last, res.pageable.pageNumber);
+        pagination.setEvent((page) => search.search('/api/v1/m/search?page=' + page));
+//        pagination.showPagination(res.first, res.last, res.totalElements, res.pageable.pageNumber, res.totalPages);
     }
 };
 
