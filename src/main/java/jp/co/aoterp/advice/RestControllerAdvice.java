@@ -15,7 +15,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 @Slf4j
-@org.springframework.web.bind.annotation.RestControllerAdvice
+@org.springframework.web.bind.annotation.RestControllerAdvice(basePackages = "jp.co.aoterp.web.api")
 public class RestControllerAdvice extends ResponseEntityExceptionHandler {
 
     @Override

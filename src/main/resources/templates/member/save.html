@@ -77,6 +77,9 @@
                               <option value="-1"></option>
                               <option th:each="sex : ${sex}" th:value="${sex.key}">[[${sex.value}]]</option>
                             </select>
+                            <div id="sex-validation" class="invalid-feedback">
+                              <i class="bx bx-radio-circle"></i>
+                            </div>
                           </fieldset>
                         </div>
                       </div>
@@ -86,6 +89,9 @@
                           <label for="age-id">年齢</label>
                           <input type="number" id="age-id" class="form-control"
                                  name="age" placeholder="Age">
+                          <div id="age-validation" class="invalid-feedback">
+                            <i class="bx bx-radio-circle"></i>
+                          </div>
                         </div>
                       </div>
 
@@ -97,6 +103,9 @@
                               <option value="-1"></option>
                               <option th:each="nationality : ${nationalities}" th:value="${nationality.key}">[[${nationality.value}]]</option>
                             </select>
+                            <div id="nationality-validation" class="invalid-feedback">
+                              <i class="bx bx-radio-circle"></i>
+                            </div>
                           </fieldset>
                         </div>
                       </div>
@@ -112,6 +121,9 @@
                               <option value="-1"></option>
                               <option th:each="employmentType : ${employmentTypes}" th:value="${employmentType.key}">[[${employmentType.value}]]</option>
                             </select>
+                            <div id="employmentType-validation" class="invalid-feedback">
+                              <i class="bx bx-radio-circle"></i>
+                            </div>
                           </fieldset>
                         </div>
                       </div>
@@ -122,6 +134,9 @@
                           <!--           TODO：Datepicker調べること               -->
                           <input type="text" id="enteredDate-id" class="form-control"
                                  name="enteredDate" placeholder="Entered Date">
+                          <div id="enteredDate-validation" class="invalid-feedback">
+                            <i class="bx bx-radio-circle"></i>
+                          </div>
                         </div>
                       </div>
 
@@ -133,6 +148,9 @@
                               <option value="-1"></option>
                               <option th:each="department : ${departments}" th:value="${department.key}">[[${department.value}]]</option>
                             </select>
+                            <div id="department-validation" class="invalid-feedback">
+                              <i class="bx bx-radio-circle"></i>
+                            </div>
                           </fieldset>
                         </div>
                       </div>
@@ -145,6 +163,9 @@
                               <option value="-1"></option>
                               <option th:each="position : ${positions}" th:value="${position.key}">[[${position.value}]]</option>
                             </select>
+                            <div id="position-validation" class="invalid-feedback">
+                              <i class="bx bx-radio-circle"></i>
+                            </div>
                           </fieldset>
                         </div>
                       </div>
