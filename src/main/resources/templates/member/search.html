@@ -62,9 +62,7 @@
                                                     <fieldset class="form-group">
                                                         <select class="form-select" id="employmentType-id" name="employmentType">
                                                             <option value="-1"></option>
-                                                            <option value="1">正社員</option>
-                                                            <option value="2">契約社員</option>
-                                                            <option value="3">アルバイト</option>
+                                                            <option th:each="employmentType : ${employmentTypes}" th:value="${employmentType.key}">[[${employmentType.value}]]</option>
                                                         </select>
                                                     </fieldset>
                                                 </div>
@@ -108,9 +106,7 @@
                                                     <fieldset class="form-group">
                                                         <select class="form-select" id="department-id" name="department">
                                                             <option value="-1"></option>
-                                                            <option value="1">システム開発1部</option>
-                                                            <option value="2">システム開発2部</option>
-                                                            <option value="3">システム開発3部</option>
+                                                            <option th:each="department : ${departments}" th:value="${department.key}">[[${department.value}]]</option>
                                                         </select>
                                                     </fieldset>
                                                 </div>

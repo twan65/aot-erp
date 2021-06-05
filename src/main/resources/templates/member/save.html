@@ -75,9 +75,7 @@
                           <fieldset class="form-group">
                             <select class="form-select" id="sex-id" name="sex">
                               <option value="-1"></option>
-                              <option value="1">男性</option>
-                              <option value="2">女性</option>
-                              <option value="3">その他</option>
+                              <option th:each="sex : ${sex}" th:value="${sex.key}">[[${sex.value}]]</option>
                             </select>
                           </fieldset>
                         </div>
@@ -97,11 +95,7 @@
                           <fieldset class="form-group">
                             <select class="form-select" id="nationality-id" name="nationality">
                               <option value="-1"></option>
-                              <option value="1">日本</option>
-                              <option value="2">韓国</option>
-                              <option value="3">アメリカ</option>
-                              <option value="4">中国</option>
-                              <option value="5">ベトナム</option>
+                              <option th:each="nationality : ${nationalities}" th:value="${nationality.key}">[[${nationality.value}]]</option>
                             </select>
                           </fieldset>
                         </div>
@@ -116,9 +110,7 @@
                           <fieldset class="form-group">
                             <select class="form-select" id="employmentType-id" name="employmentType">
                               <option value="-1"></option>
-                              <option value="1">正社員</option>
-                              <option value="2">契約社員</option>
-                              <option value="3">アルバイト</option>
+                              <option th:each="employmentType : ${employmentTypes}" th:value="${employmentType.key}">[[${employmentType.value}]]</option>
                             </select>
                           </fieldset>
                         </div>
@@ -139,9 +131,7 @@
                           <fieldset class="form-group">
                             <select class="form-select" id="department-id" name="department">
                               <option value="-1"></option>
-                              <option value="1">システム開発1部</option>
-                              <option value="2">システム開発2部</option>
-                              <option value="3">システム開発3部</option>
+                              <option th:each="department : ${departments}" th:value="${department.key}">[[${department.value}]]</option>
                             </select>
                           </fieldset>
                         </div>
@@ -153,11 +143,7 @@
                           <fieldset class="form-group">
                             <select class="form-select" id="position-id" name="position">
                               <option value="-1"></option>
-                              <option value="1">テスター</option>
-                              <option value="2">プログラマー</option>
-                              <option value="3">システムエンジニア</option>
-                              <option value="4">チームリーダー</option>
-                              <option value="5">プロジェクトマネージャー</option>
+                              <option th:each="position : ${positions}" th:value="${position.key}">[[${position.value}]]</option>
                             </select>
                           </fieldset>
                         </div>
@@ -184,6 +170,8 @@
 
   </div>
 </div>
+
+<th:block th:include="fragments/success-modal"></th:block>
 
 
 <script th:src="@{/vendors/perfect-scrollbar/perfect-scrollbar.min.js}"></script>

@@ -23,7 +23,11 @@ public class MemberController {
                     .department(Long.valueOf(1)).employmentType(Long.valueOf(1)).enteredDate("2020-12-12")
                     .nationality(Long.valueOf(1)).sex(Long.valueOf(1)).position(Long.valueOf(1)).build();
             memberService.save(dto);
+
         }
+
+        model.addAttribute("departments", Department.map());
+        model.addAttribute("employmentTypes", EmploymentType.map());
         return ViewNames.MEMBER_SEARCH_PATH;
     }
 
@@ -31,7 +35,7 @@ public class MemberController {
     public String save(Model model) {
         model.addAttribute("departments", Department.map());
         model.addAttribute("employmentTypes", EmploymentType.map());
-        model.addAttribute("Nationalities", Nationality.map());
+        model.addAttribute("nationalities", Nationality.map());
         model.addAttribute("positions", Position.map());
         model.addAttribute("sex", Sex.map());
         return ViewNames.MEMBER_SAVE_PATH;
