@@ -19,7 +19,14 @@ var save = {
             nationality: $('#nationality-id').val(),
         };
 
-        api.save('/api/v1/m', data, () => alert('メンバー登録が正常にできました。'));
+        // 正常登録時にModalセット
+        api.save('/api/v1/m', data, () => {
+            $(".close").on('click', () => window.location.href = '/m/search');
+            $(".btn-success").on('click', () => window.location.href = '/m/search');
+            $('#success-modal-title').text('登録完了');
+            $('#success-modal-body').text('メンバーが正常に登録されました。');
+            $("#success").modal('show');
+        });
     }
 };
 
