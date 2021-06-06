@@ -23,7 +23,7 @@ var save = {
         api.save('/api/v1/m', data, () => {
             $(".close").on('click', () => window.location.href = '/m/search');
             $(".btn-success").on('click', () => window.location.href = '/m/search');
-            $('#success-modal-title').text('登録完了');
+            $('#success-modal-title').text('メンバー登録');
             $('#success-modal-body').text('メンバーが正常に登録されました。');
             $("#success").modal('show');
         });

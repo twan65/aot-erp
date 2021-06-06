@@ -25,7 +25,12 @@ var search = {
         $("#search-result").hide();
 
         if(!res || !res.content || !res.content.length) {
-            // TODO: 検索結果がありません。
+            $(".close").on('click', () => $("#danger").modal('hide'));
+            $(".btn-danger").on('click', () => $("#danger").modal('hide'));
+            $('#danger-modal-title').text('メンバー一覧');
+            $('#danger-modal-body').text('検索結果がありません。');
+            $("#danger").modal('show');
+            return;
         }
 
         const { content } = res;
