@@ -1,5 +1,6 @@
 package jp.co.aoterp.constant;
 
+import java.util.Arrays;
 import java.util.LinkedHashMap;
 
 public enum Position {
@@ -38,5 +39,18 @@ public enum Position {
         }
 
         return map;
+    }
+
+    /**
+     * コードから名称を取得する。
+     * @param code 各コード
+     * @return 各名称
+     */
+    public static String getNameBy(int code) {
+        return Arrays.stream(Position.values()).
+                filter(position -> position.code == code)
+                .findFirst()
+                .orElseThrow(IllegalArgumentException::new)
+                .name;
     }
 }

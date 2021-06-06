@@ -22,7 +22,7 @@ public class MemberSaveRequestDto {
 
     @Min(value = 1, message = "{E00003}")
     @Max(value = 3, message = "{E00003}")
-    private Long employmentType;
+    private Integer employmentType;
 
     // TODO: Localdateに変更
     @NotBlank(message = "{E00002}")
@@ -30,25 +30,25 @@ public class MemberSaveRequestDto {
 
     @Min(value = 1, message = "{E00003}")
     @Max(value = 3, message = "{E00003}")
-    private Long department;
+    private Integer department;
 
     @Min(value = 1, message = "{E00003}")
     @Max(value = 5, message = "{E00003}")
-    private Long position;
+    private Integer position;
 
     // TODO: 生年月日に変更
-    private Long age;
+    private Integer age;
 
     @Min(value = 1, message = "{E00003}")
     @Max(value = 3, message = "{E00003}")
-    private Long sex;
+    private Integer sex;
 
     @Min(value = 1, message = "{E00003}")
     @Max(value = 5, message = "{E00003}")
-    private Long nationality;
+    private Integer nationality;
 
     @Builder
-    public MemberSaveRequestDto(String email, String name, Long employmentType, String enteredDate, Long department, Long position, Long age, Long sex, Long nationality) {
+    public MemberSaveRequestDto(String email, String name, Integer employmentType, String enteredDate, Integer department, Integer position, Integer age, Integer sex, Integer nationality) {
         this.email = email;
         this.name = name;
         this.employmentType = employmentType;

@@ -1,5 +1,6 @@
 package jp.co.aoterp.constant;
 
+import java.util.Arrays;
 import java.util.LinkedHashMap;
 
 public enum EmploymentType {
@@ -34,5 +35,18 @@ public enum EmploymentType {
         }
 
         return map;
+    }
+
+    /**
+     * コードから名称を取得する。
+     * @param code 各コード
+     * @return 各名称
+     */
+    public static String getNameBy(int code) {
+        return Arrays.stream(EmploymentType.values()).
+                filter(employmentType -> employmentType.code == code)
+                .findFirst()
+                .orElseThrow(IllegalArgumentException::new)
+                .name;
     }
 }

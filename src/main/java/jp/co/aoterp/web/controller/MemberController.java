@@ -16,12 +16,13 @@ public class MemberController {
 
     @GetMapping("/m/search")
     public String search(Model model) {
-        for (int i = 0; i < 66; i++) {
+        // TODO: 仮データ
+        for (int i = 1; i < 66; i++) {
 
             MemberSaveRequestDto dto = MemberSaveRequestDto.builder().email("test" + i + "@co.jp")
-                    .name("test" + i).age(Long.valueOf(i))
-                    .department(Long.valueOf(1)).employmentType(Long.valueOf(1)).enteredDate("2020-12-12")
-                    .nationality(Long.valueOf(1)).sex(Long.valueOf(1)).position(Long.valueOf(1)).build();
+                    .name("test" + i).age(i)
+                    .department(1).employmentType(2).enteredDate("2020-12-12")
+                    .nationality(2).sex(1).position(4).build();
             memberService.save(dto);
 
         }

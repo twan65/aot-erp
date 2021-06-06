@@ -21,28 +21,28 @@ public class Members extends BaseTimeEntity {
     private String email;
 
     @Column(length = 1, nullable = false)
-    private long employmentType;
+    private int employmentType;
 
     @Column(nullable = false)
     private LocalDate enteredDate;
 
     @Column(length = 1, nullable = false)
-    private long department;
+    private int department;
 
     @Column(length = 1, nullable = false)
-    private long position;
+    private int position;
 
     @Column(length = 2, nullable = false)
-    private long age;
+    private int age;
 
     @Column(length = 1, nullable = false)
-    private long sex;
+    private int sex;
 
     @Column(length = 50, nullable = false)
     private String name;
 
     @Column(length = 1, nullable = false)
-    private long nationality;
+    private int nationality;
 
     @Column(length = 50, nullable = false)
     private String createdBy;
@@ -54,7 +54,7 @@ public class Members extends BaseTimeEntity {
     private boolean isDeleted;
 
     @Builder
-    public Members(String email, String name, Long employmentType, LocalDate enteredDate, Long department, Long position, Long age, Long sex, Long nationality) {
+    public Members(String email, String name, Integer employmentType, LocalDate enteredDate, Integer department, Integer position, Integer age, Integer sex, Integer nationality) {
         this.email = email;
         this.name = name;
         this.employmentType = employmentType;
