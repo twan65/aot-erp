@@ -1,11 +1,15 @@
 package jp.co.aoterp.web.dto;
 
 import jp.co.aoterp.domain.member.Members;
+import jp.co.aoterp.validation.DateFormatValid;
 import lombok.Builder;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 
-import javax.validation.constraints.*;
+import javax.validation.constraints.Email;
+import javax.validation.constraints.Max;
+import javax.validation.constraints.Min;
+import javax.validation.constraints.NotBlank;
 import java.time.LocalDate;
 import java.time.format.DateTimeFormatter;
 
@@ -24,8 +28,8 @@ public class MemberSaveRequestDto {
     @Max(value = 3, message = "{E00003}")
     private Integer employmentType;
 
-    // TODO: Localdateに変更
     @NotBlank(message = "{E00002}")
+    @DateFormatValid(message = "{E00004}")
     private String enteredDate;
 
     @Min(value = 1, message = "{E00003}")
