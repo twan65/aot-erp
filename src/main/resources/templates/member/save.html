@@ -15,6 +15,9 @@
   <link rel="stylesheet" th:href="@{/vendors/bootstrap-icons/bootstrap-icons.css}">
   <link rel="stylesheet" th:href="@{/css/app.css}">
   <link rel="shortcut icon" th:href="@{/images/favicon.svg}" type="image/x-icon">
+
+  <link th:href="@{/css/datepicker.min.css}" rel="stylesheet" type="text/css">
+
 </head>
 
 <body>
@@ -131,9 +134,8 @@
                       <div class="col-md-6 col-12">
                         <div class="form-group">
                           <label for="enteredDate-id">入社日</label>
-                          <!--           TODO：Datepicker調べること               -->
-                          <input type="text" id="enteredDate-id" class="form-control"
-                                 name="enteredDate" placeholder="Entered Date">
+                          <input type="text" id="enteredDate-id" class="form-control datepicker-here"
+                                 name="enteredDate" data-language='ja'>
                           <div id="enteredDate-validation" class="invalid-feedback">
                             <i class="bx bx-radio-circle"></i>
                           </div>
@@ -201,6 +203,10 @@
 <script th:src="@{/js/main.js}"></script>
 
 <script th:src="@{/webjars/jquery/3.5.1/jquery.min.js}"></script>
+
+<script th:src="@{/js/datepicker.min.js}"></script>
+<script th:src="@{/js/i18n/datepicker.ja.js}"></script>
+
 <script th:src="@{/js/utils/validation/validation.js}"></script>
 <script th:src="@{/js/utils/api/api.js}"></script>
 <script th:src="@{/js/member/save.js}"></script>

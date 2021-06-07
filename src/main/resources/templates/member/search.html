@@ -13,6 +13,8 @@
     <link rel="stylesheet" th:href="@{/vendors/bootstrap-icons/bootstrap-icons.css}">
     <link rel="stylesheet" th:href="@{/css/app.css}">
     <link rel="shortcut icon" th:href="@{/images/favicon.svg}" type="image/x-icon">
+
+    <link th:href="@{/css/datepicker.min.css}" rel="stylesheet" type="text/css">
 </head>
 <body>
 <div id="app">
@@ -87,16 +89,16 @@
                                             <div class="col-md-6 col-12">
                                                 <div class="form-group">
                                                     <label for="enteredDateFrom-id">入社日</label>
-                                                    <input type="text" id="enteredDateFrom-id" class="form-control"
-                                                           name="enteredDateFrom" placeholder="From">
+                                                    <input type="text" id="enteredDateFrom-id" class="form-control datepicker-here"
+                                                           name="enteredDateFrom" placeholder="From" data-language='ja'>
                                                 </div>
                                             </div>
 
                                             <div class="col-md-6 col-12">
                                                 <div class="form-group">
                                                     <label for="enteredDateTo-id"></label>
-                                                    <input type="text" id="enteredDateTo-id" class="form-control"
-                                                           name="enteredDateTo" placeholder="To">
+                                                    <input type="text" id="enteredDateTo-id" class="form-control datepicker-here"
+                                                           name="enteredDateTo" placeholder="To" data-language='ja'>
                                                 </div>
                                             </div>
 
@@ -174,6 +176,10 @@
 <script th:src="@{/js/main.js}"></script>
 
 <script th:src="@{/webjars/jquery/3.5.1/jquery.min.js}"></script>
+
+<script th:src="@{/js/datepicker.min.js}"></script>
+<script th:src="@{/js/i18n/datepicker.ja.js}"></script>
+
 <script th:src="@{/js/utils/validation/validation.js}"></script>
 <script th:src="@{/js/utils/api/api.js}"></script>
 <script th:src="@{/js/utils/pagination.js}"></script>
