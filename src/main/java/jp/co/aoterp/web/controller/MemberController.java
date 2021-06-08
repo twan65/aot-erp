@@ -1,21 +1,27 @@
 package jp.co.aoterp.web.controller;
 
 import jp.co.aoterp.constant.*;
+import jp.co.aoterp.error.NoSearchResultException;
+import jp.co.aoterp.utils.MessageHelper;
 import jp.co.aoterp.web.api.service.MemberService;
 import jp.co.aoterp.web.dto.MemberSaveRequestDto;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.ModelAttribute;
+import org.springframework.web.bind.annotation.PathVariable;
+import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 
 @RequiredArgsConstructor
 @Controller
 public class MemberController {
 
     private final MemberService memberService;
+    private final MessageHelper messageHelper;
 
     @GetMapping("/m/search")
-    public String search(Model model) {
+    public String search(Model model, @ModelAttribute("error") String error) {
         // TODO: 仮データ
         for (int i = 1; i < 66; i++) {
 
@@ -29,7 +35,20 @@ public class MemberController {
 
         model.addAttribute("departments", Department.map());
         model.addAttribute("employmentTypes", EmploymentType.map());
+
         return ViewNames.MEMBER_SEARCH_PATH;
+    }
+
+    @GetMapping("/m/{id}")
+    public String findDetail(@PathVariable long id, Model model, RedirectAttributes redirectAttributes) {
+        try {
+            model.addAttribute("member", memberService.findById(id));
+        } catch(NoSearchResultException ex) {
+            redirectAttributes.addFlashAttribute("error", messageHelper.getMessage(ex.getMessageCode()));
+            return "redirect:/m/search";
+        }
+
+        return ViewNames.MEMBER_DETAIL_PATH;
     }
 
     @GetMapping("/m/save")

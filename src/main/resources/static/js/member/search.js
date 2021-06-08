@@ -3,6 +3,7 @@ var search = {
         var _this = this;
 
         $('#btn-search').on('click', function () {
+            $('.card-header').hide()
             _this.search('/api/v1/m/search');
         });
     },
@@ -28,7 +29,7 @@ var search = {
             $(".close").on('click', () => $("#danger").modal('hide'));
             $(".btn-danger").on('click', () => $("#danger").modal('hide'));
             $('#danger-modal-title').text('メンバー一覧');
-            $('#danger-modal-body').text('検索結果がありません。');
+            $('#danger-modal-body').text('検索結果がありません。')　// TODO: メッセージは設定ファイルから持ってくることを検討
             $("#danger").modal('show');
             return;
         }

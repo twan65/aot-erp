@@ -4,6 +4,7 @@ import jp.co.aoterp.domain.BaseTimeEntity;
 import lombok.Builder;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
+import org.hibernate.annotations.Where;
 
 import javax.persistence.*;
 import java.time.LocalDate;
@@ -11,6 +12,7 @@ import java.time.LocalDate;
 @Getter
 @NoArgsConstructor
 @Entity
+@Where(clause = "is_deleted = false")
 public class Members extends BaseTimeEntity {
 
     @Id // PKフィールドを示す
@@ -50,7 +52,7 @@ public class Members extends BaseTimeEntity {
     @Column(length = 50, nullable = false)
     private String updatedBy;
 
-    @Column(name = "is_deleted", nullable = false)
+    @Column(nullable = false)
     private boolean isDeleted;
 
     @Builder

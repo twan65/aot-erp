@@ -1,7 +1,7 @@
 package jp.co.aoterp.web.api.controller;
 
 import jp.co.aoterp.web.api.service.MemberService;
-import jp.co.aoterp.web.dto.MemberListResponseDto;
+import jp.co.aoterp.web.dto.MemberResponseDto;
 import jp.co.aoterp.web.dto.MemberSaveRequestDto;
 import jp.co.aoterp.web.dto.MemberSearchRequestDto;
 import lombok.RequiredArgsConstructor;
@@ -22,7 +22,7 @@ public class MemberApiController {
     private final MemberService memberService;
 
     @PostMapping("/api/v1/m/search")
-    public Page<MemberListResponseDto> findAllBy(@RequestBody MemberSearchRequestDto requestDto
+    public Page<MemberResponseDto> findAllBy(@RequestBody MemberSearchRequestDto requestDto
             , @PageableDefault(size = 20, sort = "name", direction = Sort.Direction.ASC) Pageable pageable) {
         return memberService.findAllBy(requestDto, pageable);
     }

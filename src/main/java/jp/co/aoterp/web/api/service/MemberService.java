@@ -1,9 +1,11 @@
 package jp.co.aoterp.web.api.service;
 
+import jp.co.aoterp.constant.MessageCode;
 import jp.co.aoterp.domain.member.MemberRepository;
 import jp.co.aoterp.domain.member.MemberSpecification;
 import jp.co.aoterp.domain.member.Members;
-import jp.co.aoterp.web.dto.MemberListResponseDto;
+import jp.co.aoterp.error.NoSearchResultException;
+import jp.co.aoterp.web.dto.MemberResponseDto;
 import jp.co.aoterp.web.dto.MemberSaveRequestDto;
 import jp.co.aoterp.web.dto.MemberSearchRequestDto;
 import lombok.RequiredArgsConstructor;
@@ -21,7 +23,7 @@ public class MemberService {
     private final MemberRepository memberRepository;
 
     @Transactional(readOnly = true)
-    public Page<MemberListResponseDto> findAllBy(MemberSearchRequestDto requestDto, Pageable pageable) {
+    public Page<MemberResponseDto> findAllBy(MemberSearchRequestDto requestDto, Pageable pageable) {
         Specification<Members> spec = Specification.where(null);
         if (!StringUtils.isEmpty(requestDto.getName())) {
             spec = spec.and(MemberSpecification.likeName(requestDto.getName()));
@@ -37,7 +39,7 @@ public class MemberService {
         spec = spec.and(MemberSpecification.enteredDate(requestDto.getEnteredDateFrom(), requestDto.getEnteredDateTo()));
 
 
-        return memberRepository.findAll(spec, pageable).map(MemberListResponseDto::new);
+        return memberRepository.findAll(spec, pageable).map(MemberResponseDto::new);
     }
 
     /**
@@ -46,8 +48,15 @@ public class MemberService {
      * @return メンバー一覧
      */
     @Transactional(readOnly = true)
-    public Page<MemberListResponseDto> findAll(Pageable pageable) {
-        return memberRepository.findAll(pageable).map(MemberListResponseDto::new);
+    public Page<MemberResponseDto> findAll(Pageable pageable) {
+        return memberRepository.findAll(pageable).map(MemberResponseDto::new);
+    }
+
+    public MemberResponseDto findById(Long id) {
+        Members members = memberRepository.findById(id)
+                .orElseThrow(() -> new NoSearchResultException(MessageCode.E00005));
+
+        return new MemberResponseDto(members);
     }
 
     @Transactional
