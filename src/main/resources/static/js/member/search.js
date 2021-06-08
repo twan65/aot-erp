@@ -39,7 +39,7 @@ var search = {
             $("#result-body").append(`
                 <tr>
                     <td>${memberInfo.email}</td>
-                    <td>${memberInfo.name}</td>
+                    <td><a href=/m/${memberInfo.id}>${memberInfo.name}</a></td>
                     <td>${memberInfo.department}</td>
                     <td>${memberInfo.position}</td>
                     <td>${memberInfo.nationality}</td>
