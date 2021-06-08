@@ -40,8 +40,9 @@ public class MemberSaveRequestDto {
     @Max(value = 5, message = "{E00003}")
     private Integer position;
 
-    // TODO: 生年月日に変更
-    private Integer age;
+    @NotBlank(message = "{E00002}")
+    @DateFormatValid(message = "{E00004}")
+    private String dateOfBirth;
 
     @Min(value = 1, message = "{E00003}")
     @Max(value = 3, message = "{E00003}")
@@ -52,14 +53,14 @@ public class MemberSaveRequestDto {
     private Integer nationality;
 
     @Builder
-    public MemberSaveRequestDto(String email, String name, Integer employmentType, String enteredDate, Integer department, Integer position, Integer age, Integer sex, Integer nationality) {
+    public MemberSaveRequestDto(String email, String name, Integer employmentType, String enteredDate, Integer department, Integer position, String dateOfBirth, Integer sex, Integer nationality) {
         this.email = email;
         this.name = name;
         this.employmentType = employmentType;
         this.enteredDate = enteredDate;
         this.department = department;
         this.position = position;
-        this.age = age;
+        this.dateOfBirth = dateOfBirth;
         this.sex = sex;
         this.nationality = nationality;
     }
@@ -72,7 +73,7 @@ public class MemberSaveRequestDto {
                 .enteredDate(LocalDate.parse(enteredDate, DateTimeFormatter.ISO_DATE))
                 .department(department)
                 .position(position)
-                .age(age)
+                .dateOfBirth(LocalDate.parse(dateOfBirth, DateTimeFormatter.ISO_DATE))
                 .sex(sex)
                 .nationality(nationality)
                 .build();

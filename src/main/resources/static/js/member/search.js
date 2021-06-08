@@ -14,8 +14,8 @@ var search = {
             department: $('#department-id').val(),
             enteredDateFrom: $('#enteredDateFrom-id').val(),
             enteredDateTo: $('#enteredDateTo-id').val(),
-            ageFrom: $('#ageFrom-id').val(),
-            ageTo: $('#ageTo-id').val(),
+            dateOfBirthFrom: $('#dateOfBirthFrom-id').val(),
+            dateOfBirthTo: $('#dateOfBirthTo-id').val(),
         };
 
         api.search(url, data, search.showSearchResult);

@@ -35,7 +35,7 @@ public class MemberService {
             spec = spec.and(MemberSpecification.equalEmploymentType(requestDto.getEmploymentType()));
         }
 
-        spec = spec.and(MemberSpecification.age(requestDto.getAgeFrom(), requestDto.getAgeTo()));
+        spec = spec.and(MemberSpecification.dateOfBirth(requestDto.getDateOfBirthFrom(), requestDto.getDateOfBirthTo()));
         spec = spec.and(MemberSpecification.enteredDate(requestDto.getEnteredDateFrom(), requestDto.getEnteredDateTo()));
 
 

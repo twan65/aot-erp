@@ -17,7 +17,7 @@ public class MemberResponseDto {
     private String employmentType;
     private LocalDate enteredDate;
     private String position;
-    private Integer age;
+    private LocalDate dateOfBirth;
     private String sex;
     private String nationality;
 
@@ -29,7 +29,7 @@ public class MemberResponseDto {
         this.enteredDate = members.getEnteredDate();
         this.department = Department.getNameBy(members.getDepartment());
         this.position = Position.getNameBy(members.getPosition());
-        this.age = members.getAge();
+        this.dateOfBirth = members.getDateOfBirth();
         this.sex = Sex.getNameBy(members.getSex());
         this.nationality = Nationality.getNameBy(members.getNationality());
     }

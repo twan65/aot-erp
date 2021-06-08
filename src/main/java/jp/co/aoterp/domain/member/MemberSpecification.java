@@ -37,16 +37,16 @@ public class MemberSpecification {
         };
     }
 
-    public static Specification<Members> age(Long ageFrom, Long ageTo) {
+    public static Specification<Members> dateOfBirth(LocalDate dateOfBirthFrom, LocalDate dateOfBirthTo) {
         return new Specification<Members>() {
             @Override
             public Predicate toPredicate(Root<Members> root, CriteriaQuery<?> query, CriteriaBuilder criteriaBuilder) {
-                if (ageFrom != null && ageTo != null) {
-                    return criteriaBuilder.between(root.get("age"), ageFrom, ageTo);
-                } else if (ageFrom != null) {
-                    return criteriaBuilder.greaterThanOrEqualTo(root.get("age"), ageFrom);
-                } else if(ageTo != null) {
-                    return criteriaBuilder.lessThanOrEqualTo(root.get("age"), ageTo);
+                if (dateOfBirthFrom != null && dateOfBirthTo != null) {
+                    return criteriaBuilder.between(root.get("dateOfBirth"), dateOfBirthFrom, dateOfBirthTo);
+                } else if (dateOfBirthFrom != null) {
+                    return criteriaBuilder.greaterThanOrEqualTo(root.get("dateOfBirth"), dateOfBirthFrom);
+                } else if(dateOfBirthTo != null) {
+                    return criteriaBuilder.lessThanOrEqualTo(root.get("dateOfBirth"), dateOfBirthTo);
                 } else {
                     return null;
                 }

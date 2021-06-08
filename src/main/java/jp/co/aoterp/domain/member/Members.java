@@ -34,8 +34,8 @@ public class Members extends BaseTimeEntity {
     @Column(length = 1, nullable = false)
     private int position;
 
-    @Column(length = 2, nullable = false)
-    private int age;
+    @Column(nullable = false)
+    private LocalDate dateOfBirth;
 
     @Column(length = 1, nullable = false)
     private int sex;
@@ -56,14 +56,14 @@ public class Members extends BaseTimeEntity {
     private boolean isDeleted;
 
     @Builder
-    public Members(String email, String name, Integer employmentType, LocalDate enteredDate, Integer department, Integer position, Integer age, Integer sex, Integer nationality) {
+    public Members(String email, String name, Integer employmentType, LocalDate enteredDate, Integer department, Integer position, LocalDate dateOfBirth, Integer sex, Integer nationality) {
         this.email = email;
         this.name = name;
         this.employmentType = employmentType;
         this.enteredDate = enteredDate;
         this.department = department;
         this.position = position;
-        this.age = age;
+        this.dateOfBirth = dateOfBirth;
         this.sex = sex;
         this.nationality = nationality;
         this.createdBy = "testUser1"; // TODO: ログインユーザーに変更

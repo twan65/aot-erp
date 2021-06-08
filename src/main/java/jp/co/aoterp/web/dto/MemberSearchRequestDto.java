@@ -15,17 +15,17 @@ public class MemberSearchRequestDto {
     private Long department;
     private LocalDate enteredDateFrom;
     private LocalDate enteredDateTo;
-    private Long ageFrom;
-    private Long ageTo;
+    private LocalDate dateOfBirthFrom;
+    private LocalDate dateOfBirthTo;
 
     @Builder
-    public MemberSearchRequestDto(String name, Long employmentType, Long department, Long ageFrom, Long ageTo, LocalDate enteredDateFrom, LocalDate enteredDateTo) {
+    public MemberSearchRequestDto(String name, Long employmentType, Long department, LocalDate dateOfBirthFrom, LocalDate dateOfBirthTo, LocalDate enteredDateFrom, LocalDate enteredDateTo) {
         this.name = name;
         this.employmentType = employmentType;
         this.enteredDateFrom = enteredDateFrom;
         this.department = department;
         this.enteredDateTo = enteredDateTo;
-        this.ageFrom = ageFrom;
-        this.ageTo = ageTo;
+        this.dateOfBirthFrom = dateOfBirthFrom;
+        this.dateOfBirthTo = dateOfBirthTo;
     }
 }

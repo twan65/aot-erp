@@ -26,7 +26,7 @@ public class MemberController {
         for (int i = 1; i < 66; i++) {
 
             MemberSaveRequestDto dto = MemberSaveRequestDto.builder().email("test" + i + "@co.jp")
-                    .name("test" + i).age(i)
+                    .name("test" + i).dateOfBirth("1990-05-05")
                     .department(1).employmentType(2).enteredDate("2020-12-12")
                     .nationality(2).sex(1).position(4).build();
             memberService.save(dto);

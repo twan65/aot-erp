@@ -14,7 +14,7 @@ var save = {
             enteredDate: $('#enteredDate-id').val(),
             department: $('#department-id').val(),
             position: $('#position-id').val(),
-            age: $('#age-id').val(),
+            dateOfBirth: $('#dateOfBirth-id').val(),
             sex: $('#sex-id').val(),
             nationality: $('#nationality-id').val(),
         };
