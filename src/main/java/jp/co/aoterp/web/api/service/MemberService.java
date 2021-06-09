@@ -53,10 +53,10 @@ public class MemberService {
     }
 
     public MemberResponseDto findById(Long id) {
-        Members members = memberRepository.findById(id)
+        Members member = memberRepository.findById(id)
                 .orElseThrow(() -> new NoSearchResultException(MessageCode.E00005));
 
-        return new MemberResponseDto(members);
+        return new MemberResponseDto(member, member.getSkills());
     }
 
     @Transactional

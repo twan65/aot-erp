@@ -1,6 +1,7 @@
 package jp.co.aoterp.domain.member;
 
 import jp.co.aoterp.domain.BaseTimeEntity;
+import jp.co.aoterp.domain.skill.Skill;
 import lombok.Builder;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
@@ -8,6 +9,7 @@ import org.hibernate.annotations.Where;
 
 import javax.persistence.*;
 import java.time.LocalDate;
+import java.util.List;
 
 @Getter
 @NoArgsConstructor
@@ -43,6 +45,12 @@ public class Members extends BaseTimeEntity {
     @Column(length = 50, nullable = false)
     private String name;
 
+    @Column
+    private String nearestStation;
+
+    @Column(length = 13)
+    private String phone;
+
     @Column(length = 1, nullable = false)
     private int nationality;
 
@@ -54,6 +62,10 @@ public class Members extends BaseTimeEntity {
 
     @Column(nullable = false)
     private boolean isDeleted;
+
+    @OneToMany(fetch = FetchType.LAZY)
+    @JoinColumn(name = "member_id")
+    private List<Skill> skills;
 
     @Builder
     public Members(String email, String name, Integer employmentType, LocalDate enteredDate, Integer department, Integer position, LocalDate dateOfBirth, Integer sex, Integer nationality) {
