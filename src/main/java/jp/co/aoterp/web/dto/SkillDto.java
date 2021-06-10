@@ -5,11 +5,20 @@ import lombok.Getter;
 
 @Getter
 public class SkillDto {
+
     private String name;
     private int percent;
 
     public SkillDto(Skill skill) {
         this.name = skill.getName();
         this.percent = skill.getPercent();
+    }
+
+    public Skill toEntity(long memberId) {
+        return Skill.builder()
+                .name(name)
+                .memberId(memberId)
+                .percent(percent)
+                .build();
     }
 }

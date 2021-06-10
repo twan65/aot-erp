@@ -51,6 +51,18 @@ public class MemberController {
         return ViewNames.MEMBER_DETAIL_PATH;
     }
 
+    @GetMapping("/m/edit/{id}")
+    public String edit(@PathVariable long id, Model model, RedirectAttributes redirectAttributes) {
+        try {
+            model.addAttribute("member", memberService.findById(id));
+        } catch(NoSearchResultException ex) {
+            redirectAttributes.addFlashAttribute("error", messageHelper.getMessage(ex.getMessageCode()));
+            // TODO: リダイレクトはTOPへ
+            return "redirect:/m/search";
+        }
+        return ViewNames.MEMBER_EDIT_PATH;
+    }
+
     @GetMapping("/m/save")
     public String save(Model model) {
         model.addAttribute("departments", Department.map());

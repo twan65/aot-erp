@@ -4,10 +4,13 @@ import jp.co.aoterp.constant.MessageCode;
 import jp.co.aoterp.domain.member.MemberRepository;
 import jp.co.aoterp.domain.member.MemberSpecification;
 import jp.co.aoterp.domain.member.Members;
+import jp.co.aoterp.domain.skill.Skill;
+import jp.co.aoterp.domain.skill.SkillRepository;
 import jp.co.aoterp.error.NoSearchResultException;
 import jp.co.aoterp.web.dto.MemberResponseDto;
 import jp.co.aoterp.web.dto.MemberSaveRequestDto;
 import jp.co.aoterp.web.dto.MemberSearchRequestDto;
+import jp.co.aoterp.web.dto.MemberUpdateRequestDto;
 import lombok.RequiredArgsConstructor;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.Pageable;
@@ -15,12 +18,17 @@ import org.springframework.data.jpa.domain.Specification;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 import org.springframework.util.StringUtils;
+import org.thymeleaf.util.ListUtils;
+
+import java.util.List;
+import java.util.stream.Collectors;
 
 @RequiredArgsConstructor
 @Service
 public class MemberService {
 
     private final MemberRepository memberRepository;
+    private final SkillRepository skillRepository;
 
     @Transactional(readOnly = true)
     public Page<MemberResponseDto> findAllBy(MemberSearchRequestDto requestDto, Pageable pageable) {
@@ -62,5 +70,24 @@ public class MemberService {
     @Transactional
     public Long save(MemberSaveRequestDto requestDto) {
         return memberRepository.save(requestDto.toEntity()).getId();
+    }
+
+
+    @Transactional
+    public Long update(long id, MemberUpdateRequestDto requestDto) {
+        Members member = memberRepository.findById(id)
+                .orElseThrow(() -> new NoSearchResultException(MessageCode.E00005));
+
+        member.update(requestDto.getName(), requestDto.getSex(), requestDto.getNationality(),
+                requestDto.getNearestStation(), requestDto.getPhone());
+
+        skillRepository.deleteAll();
+        if (!ListUtils.isEmpty(requestDto.getSkills())) {
+            List<Skill> skills = requestDto.getSkills().stream()
+                    .map(dto -> dto.toEntity(id))
+                    .collect(Collectors.toList());
+            skillRepository.saveAll(skills);
+        }
+        return id;
     }
 }
