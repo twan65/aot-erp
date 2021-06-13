@@ -83,12 +83,9 @@ public class Members extends BaseTimeEntity {
         this.isDeleted = false;
     }
 
-    public void update(String name, Integer sex, Integer nationality,
-                                  String nearestStation, String phone) {
+    public void update(String name, String nearestStation, String phone) {
         this.name = name;
         this.nearestStation = nearestStation;
         this.phone = phone;
-        this.sex = sex;
-        this.nationality = nationality;
     }
 }

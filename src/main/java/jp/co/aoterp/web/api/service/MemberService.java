@@ -78,7 +78,7 @@ public class MemberService {
         Members member = memberRepository.findById(id)
                 .orElseThrow(() -> new NoSearchResultException(MessageCode.E00005));
 
-        member.update(requestDto.getName(), requestDto.getSex(), requestDto.getNationality(),
+        member.update(requestDto.getName(),
                 requestDto.getNearestStation(), requestDto.getPhone());
 
         skillRepository.deleteAll();

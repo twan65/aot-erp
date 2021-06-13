@@ -52,12 +52,24 @@
                                     <p class="form-control-static" id="email" th:text="*{email}"></p>
                                 </div>
                                 <div class="form-group">
+                                    <label for="name-id">名前</label>
+                                    <input type="text" id="name-id" class="form-control"
+                                           placeholder="name" name="name" th:field="*{name}">
+                                    <div id="name-validation" class="invalid-feedback">
+                                        <i class="bx bx-radio-circle"></i>
+                                    </div>
+                                </div>
+                                <div class="form-group">
                                     <label for="sex">性別</label>
                                     <p class="form-control-static" id="sex" th:text="*{sex}"></p>
                                 </div>
                                 <div class="form-group">
-                                    <label for="nearestStation">最寄駅</label>
-                                    <p class="form-control-static" id="nearestStation" th:text="*{nearestStation}"></p>
+                                    <label for="nearestStation-id">最寄駅</label>
+                                    <input type="text" id="nearestStation-id" class="form-control"
+                                           placeholder="nearestStation" name="nearestStation" th:field="*{nearestStation}">
+                                    <div id="nearestStation-validation" class="invalid-feedback">
+                                        <i class="bx bx-radio-circle"></i>
+                                    </div>
                                 </div>
                             </div>
                             <div class="col-md-6">
@@ -70,8 +82,12 @@
                                     <p class="form-control-static" id="nationality" th:text="*{nationality}"></p>
                                 </div>
                                 <div class="form-group">
-                                    <label for="phone">携帯</label>
-                                    <p class="form-control-static" id="phone"></p>
+                                    <label for="phone-id">携帯</label>
+                                    <input type="text" id="phone-id" class="form-control"
+                                           placeholder="phone" name="phone" th:field="*{phone}">
+                                    <div id="phone-validation" class="invalid-feedback">
+                                        <i class="bx bx-radio-circle"></i>
+                                    </div>
                                 </div>
                             </div>
                         </div>
@@ -110,19 +126,39 @@
                         <h4>スキル</h4>
                     </div>
                     <div class="card-body">
-                        <div th:each="skill : *{skills}" class="orm-group progress progress-primary  mb-4">
-                            <label th:for="${skill.name}" th:text="${skill.name}"></label>
-                            <div class="fprogress-bar progress-label" th:id="${skill.name}" role="progressbar" th:style="|width: ${skill.percent}%|"
-                                 th:attrappend="aria-valuenow=${skill.percent}" aria-valuemin="0" aria-valuemax="100"></div>
+                        <div class="row" th:each="skill, st : *{skills}">
+                            <div class="col-12">
+                                <fieldset>
+                                    <div class="input-group">
+                                        <div class="input-group-prepend">
+                                            <span class="input-group-text">スキル名</span>
+                                        </div>
+                                        <input type="text" aria-label="Skill name" class="form-control"
+                                               th:name="${st.count}" th:field="*{skills[__${st.index}__].name}"
+                                               >
+                                        <input type="text" aria-label="Skill percent" class="form-control"
+                                               th:name="${st.count}" th:field="*{skills[__${st.index}__].percent}"
+                                               >
+                                        <div class="input-group-prepend">
+                                            <span class="input-group-text">パーセント（％）</span>
+                                        </div>
+                                    </div>
+                                </fieldset>
+                            </div>
                         </div>
                     </div>
                 </div>
             </section>
-
+            <div class="col-12 d-flex justify-content-end">
+                <button type="button"
+                        class="btn btn-primary me-1 mb-1" id="btn-edit">更新</button>
+            </div>
 
         </div>
     </div>
 </div>
+
+<th:block th:include="fragments/success-modal"></th:block>
 
 <script th:src="@{/vendors/perfect-scrollbar/perfect-scrollbar.min.js}"></script>
 <script th:src="@{/js/bootstrap.bundle.min.js}"></script>
@@ -130,5 +166,8 @@
 <script th:src="@{/js/main.js}"></script>
 
 <script th:src="@{/webjars/jquery/3.5.1/jquery.min.js}"></script>
+<script th:src="@{/js/utils/validation/validation.js}"></script>
+<script th:src="@{/js/utils/api/api.js}"></script>
+<script th:src="@{/js/member/edit.js}"></script>
 </body>
 </html>

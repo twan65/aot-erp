@@ -44,8 +44,7 @@ public class MemberController {
         skills.add(skill1);
         skills.add(skill2);
 
-        MemberUpdateRequestDto dto = new MemberUpdateRequestDto("test1"
-                , 1, 1,"日暮里駅","",skills);
+        MemberUpdateRequestDto dto = new MemberUpdateRequestDto("test1", "日暮里駅","",skills);
 
         memberService.update(1, dto);
 
