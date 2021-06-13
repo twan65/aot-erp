@@ -5,6 +5,8 @@ import jp.co.aoterp.error.NoSearchResultException;
 import jp.co.aoterp.utils.MessageHelper;
 import jp.co.aoterp.web.api.service.MemberService;
 import jp.co.aoterp.web.dto.MemberSaveRequestDto;
+import jp.co.aoterp.web.dto.MemberUpdateRequestDto;
+import jp.co.aoterp.web.dto.SkillDto;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -12,6 +14,9 @@ import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.servlet.mvc.support.RedirectAttributes;
+
+import java.util.ArrayList;
+import java.util.List;
 
 @RequiredArgsConstructor
 @Controller
@@ -32,6 +37,18 @@ public class MemberController {
             memberService.save(dto);
 
         }
+
+        SkillDto skill1 = new SkillDto("java", 70);
+        SkillDto skill2 = new SkillDto("Go", 65);
+        List<SkillDto> skills = new ArrayList<>();
+        skills.add(skill1);
+        skills.add(skill2);
+
+        MemberUpdateRequestDto dto = new MemberUpdateRequestDto("test1"
+                , 1, 1,"日暮里駅","",skills);
+
+        memberService.update(1, dto);
+
 
         model.addAttribute("departments", Department.map());
         model.addAttribute("employmentTypes", EmploymentType.map());
