@@ -14,6 +14,11 @@ public class SkillDto {
         this.percent = skill.getPercent();
     }
 
+    public SkillDto(String name, int percent) {
+        this.name = name;
+        this.percent = percent;
+    }
+
     public Skill toEntity(long memberId) {
         return Skill.builder()
                 .name(name)

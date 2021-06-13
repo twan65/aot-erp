@@ -116,7 +116,7 @@
                     <div class="card-body">
                         <div th:each="skill : *{skills}" class="orm-group progress progress-primary  mb-4">
                             <label th:for="${skill.name}" th:text="${skill.name}"></label>
-                            <div class="fprogress-bar progress-label" th:id="${skill.name}" role="progressbar" th:style="|width: ${skill.percent}%|"
+                            <div class="progress-bar progress-label" th:id="${skill.name}" role="progressbar" th:style="|width: ${skill.percent}%|"
                                  th:attrappend="aria-valuenow=${skill.percent}" aria-valuemin="0" aria-valuemax="100"></div>
                         </div>
                     </div>
