@@ -3,6 +3,7 @@ package jp.co.aoterp.web.dto;
 import lombok.Builder;
 import lombok.Getter;
 
+import javax.validation.Valid;
 import javax.validation.constraints.NotBlank;
 import java.util.List;
 
@@ -18,6 +19,7 @@ public class MemberUpdateRequestDto {
     @NotBlank(message = "{E00002}")
     private String phone;
 
+    @Valid
     private List<SkillDto> skills;
 
     @Builder
