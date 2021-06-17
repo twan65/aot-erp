@@ -135,13 +135,15 @@
                                                 <span class="input-group-text">スキル名</span>
                                             </div>
                                             <input type="text" aria-label="Skill name" class="form-control"
-                                                   th:name="${st.count}" th:field="*{skills[__${st.index}__].name}"
-                                                   th:id="'skills[' + ${st.index} + '].name-id'"
+                                                   th:value="*{skills[__${st.index}__].name}"
+                                                   th:name="'skills-' + ${st.index} + '-name-id'"
+                                                   th:id="'skills-' + ${st.index} + '-name-id'"
                                                    >
 
-                                            <input type="text" aria-label="Skill percent" class="form-control"
-                                                   th:name="${st.count}" th:field="*{skills[__${st.index}__].percent}"
-                                                   th:id="'skills[' + ${st.index} + '].percent-id'"
+                                            <input type="number" aria-label="Skill percent" class="form-control"
+                                                   th:value="*{skills[__${st.index}__].percent}"
+                                                   th:name="'skills-' + ${st.index} + '-percent-id'"
+                                                   th:id="'skills-' + ${st.index} + '-percent-id'"
                                                    >
                                             <div class="input-group-prepend">
                                                 <span class="input-group-text">パーセント(%)</span>
@@ -149,10 +151,10 @@
 
                                         </div>
                                     </fieldset>
-                                    <div th:id="'skills[' + ${st.index} + '].name-validation'" class="invalid-feedback">
+                                    <div th:id="'skills-' + ${st.index} + '-.name-validation'" class="invalid-feedback">
                                         <i class="bx bx-radio-circle"></i>
                                     </div>
-                                    <div th:id="'skills[' + ${st.index} + '].percent-validation'" class="invalid-feedback">
+                                    <div th:id="'skills-' + ${st.index} + '-.percent-validation'" class="invalid-feedback">
                                         <i class="bx bx-radio-circle"></i>
                                     </div>
                                 </div>

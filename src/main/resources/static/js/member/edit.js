@@ -22,8 +22,8 @@ var edit = {
         let length = $( "input[name^='skills']" ).length;
         for (let i = 0; i < length/2; i++) {
             let skill = {
-                name: $( "input[name^='skills[" + i +"].name']" ).val(),
-                percent: $( "input[name^='skills[" + i +"].percent']" ).val(),
+                name: $( "input[name^='skills-" + i +"-name']" ).val(),
+                percent: $( "input[name^='skills-" + i +"-percent']" ).val(),
             };
             data.skills.push(skill);
         }
@@ -53,19 +53,19 @@ var edit = {
                                                 <span class='input-group-text'>スキル名</span>
                                             </div>
                                             <input type='text' aria-label='Skill name' class='form-control'
-                                                   name='skills[${targetIdx}].name' id='skills[${targetIdx}].name'>
-                                            <input type='text' aria-label='Skill percent' class='form-control'
-                                                   name='skills[${targetIdx}].percent' id='skills[${targetIdx}].percent'>
+                                                   name='skills-${targetIdx}-name' id='skills-${targetIdx}-name-id'>
+                                            <input type='number' aria-label='Skill percent' class='form-control'
+                                                   name='skills-${targetIdx}-percent' id='skills-${targetIdx}-percent-id'>
                                             <div class='input-group-prepend'>
                                                 <span class='input-group-text'>パーセント(%)</span>
                                             </div>
 
                                         </div>
                                     </fieldset>
-                                    <div id='skills[${targetIdx}].name-validation' class='invalid-feedback'>
+                                    <div id='skills-${targetIdx}-name-validation' class='invalid-feedback'>
                                         <i class='bx bx-radio-circle'></i>
                                     </div>
-                                    <div id='skills[${targetIdx}].percent-validation' class='invalid-feedback'>
+                                    <div id='skills-${targetIdx}-percent-validation' class='invalid-feedback'>
                                         <i class='bx bx-radio-circle'></i>
                                     </div>
                                 </div>

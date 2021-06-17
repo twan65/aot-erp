@@ -8,7 +8,7 @@ var validation = {
     setValidationField: function (errors) {
         for (const err of errors) {
             var errInfo = err.split(':');
-            var errField = errInfo[0];
+            var errField = errInfo[0].replaceAll('.', '').replace(/\[|\]/g, '-');
             var errMessage = errInfo[1];
             var targetField = $('#'+ errField + '-id');
             targetField.addClass('is-invalid');
@@ -20,7 +20,7 @@ var validation = {
 
         for (const err of validation.errors) {
             var errInfo = err.split(':');
-            var errField = errInfo[0];
+            var errField = errInfo[0].replaceAll('.', '').replace(/\[|\]/g, '-');
             var errMessage = errInfo[1];
             var targetField = $('#'+ errField + '-id');
             targetField.removeClass('is-invalid');
