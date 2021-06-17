@@ -135,15 +135,25 @@
                                         </div>
                                         <input type="text" aria-label="Skill name" class="form-control"
                                                th:name="${st.count}" th:field="*{skills[__${st.index}__].name}"
+                                               th:id="'skills[' + ${st.index} + '].name'"
                                                >
+
                                         <input type="text" aria-label="Skill percent" class="form-control"
                                                th:name="${st.count}" th:field="*{skills[__${st.index}__].percent}"
+                                               th:id="'skills[' + ${st.index} + '].percent'"
                                                >
                                         <div class="input-group-prepend">
-                                            <span class="input-group-text">パーセント（％）</span>
+                                            <span class="input-group-text">％</span>
                                         </div>
+
                                     </div>
                                 </fieldset>
+                            </div>
+                            <div th:id="'skills[' + ${st.index} + '].name-validation'" class="invalid-feedback">
+                                <i class="bx bx-radio-circle"></i>
+                            </div>
+                            <div th:id="'skills[' + ${st.index} + '].percent-validation'" class="invalid-feedback">
+                                <i class="bx bx-radio-circle"></i>
                             </div>
                         </div>
                     </div>

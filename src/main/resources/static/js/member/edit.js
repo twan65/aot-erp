@@ -11,10 +11,20 @@ var edit = {
             name: $('#name-id').val(),
             nearestStation: $('#nearestStation-id').val(),
             phone: $('#phone-id').val(),
+            skills: [],
         };
 
-        // TODO: スキルセット
+        // スキルをセット
+        let length = $( "input[name^='skills']" ).length;
+        for (let i = 0; i < length/2; i++) {
+            let skill = {
+                name: $( "input[name^='skills[" + i +"].name']" ).val(),
+                percent: $( "input[name^='skills[" + i +"].percent']" ).val(),
+            };
+            data.skills.push(skill);
+        }
 
+        // idを取得
         const pathNames = location.pathname.split('/');
         const id = pathNames[pathNames.length - 1];
 
