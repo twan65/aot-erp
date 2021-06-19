@@ -53,9 +53,9 @@ var edit = {
                                                 <span class='input-group-text'>スキル名</span>
                                             </div>
                                             <input type='text' aria-label='Skill name' class='form-control'
-                                                   name='skills-${targetIdx}-name' id='skills-${targetIdx}-name-id'>
+                                                   name='skills-${targetIdx}-name' id='skills-${targetIdx}-name-id' autocomplete='off'>
                                             <input type='number' aria-label='Skill percent' class='form-control'
-                                                   name='skills-${targetIdx}-percent' id='skills-${targetIdx}-percent-id'>
+                                                   name='skills-${targetIdx}-percent' id='skills-${targetIdx}-percent-id' autocomplete='off'>
                                             <div class='input-group-prepend'>
                                                 <span class='input-group-text'>パーセント(%)</span>
                                             </div>

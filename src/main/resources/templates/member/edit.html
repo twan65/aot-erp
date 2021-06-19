@@ -54,7 +54,7 @@
                                 <div class="form-group">
                                     <label for="name-id">名前</label>
                                     <input type="text" id="name-id" class="form-control"
-                                           placeholder="name" name="name" th:field="*{name}">
+                                           placeholder="name" name="name" th:field="*{name}" autocomplete="off">
                                     <div id="name-validation" class="invalid-feedback">
                                         <i class="bx bx-radio-circle"></i>
                                     </div>
@@ -66,7 +66,7 @@
                                 <div class="form-group">
                                     <label for="nearestStation-id">最寄駅</label>
                                     <input type="text" id="nearestStation-id" class="form-control"
-                                           placeholder="nearestStation" name="nearestStation" th:field="*{nearestStation}">
+                                           placeholder="nearestStation" name="nearestStation" th:field="*{nearestStation}" autocomplete="off">
                                     <div id="nearestStation-validation" class="invalid-feedback">
                                         <i class="bx bx-radio-circle"></i>
                                     </div>
@@ -84,7 +84,7 @@
                                 <div class="form-group">
                                     <label for="phone-id">携帯</label>
                                     <input type="text" id="phone-id" class="form-control"
-                                           placeholder="phone" name="phone" th:field="*{phone}">
+                                           placeholder="phone" name="phone" th:field="*{phone}" autocomplete="off">
                                     <div id="phone-validation" class="invalid-feedback">
                                         <i class="bx bx-radio-circle"></i>
                                     </div>
@@ -137,13 +137,13 @@
                                             <input type="text" aria-label="Skill name" class="form-control"
                                                    th:value="*{skills[__${st.index}__].name}"
                                                    th:name="'skills-' + ${st.index} + '-name-id'"
-                                                   th:id="'skills-' + ${st.index} + '-name-id'"
+                                                   th:id="'skills-' + ${st.index} + '-name-id'" autocomplete="off"
                                                    >
 
                                             <input type="number" aria-label="Skill percent" class="form-control"
                                                    th:value="*{skills[__${st.index}__].percent}"
                                                    th:name="'skills-' + ${st.index} + '-percent-id'"
-                                                   th:id="'skills-' + ${st.index} + '-percent-id'"
+                                                   th:id="'skills-' + ${st.index} + '-percent-id'" autocomplete="off"
                                                    >
                                             <div class="input-group-prepend">
                                                 <span class="input-group-text">パーセント(%)</span>
