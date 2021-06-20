@@ -46,7 +46,7 @@ public class MemberController {
 
         MemberUpdateRequestDto dto = new MemberUpdateRequestDto("test1", "日暮里駅","",skills);
 
-        memberService.update(1, dto);
+        memberService.update(2, dto);
 
 
         model.addAttribute("departments", Department.map());

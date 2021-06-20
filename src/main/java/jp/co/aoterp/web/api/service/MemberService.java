@@ -1,6 +1,8 @@
 package jp.co.aoterp.web.api.service;
 
 import jp.co.aoterp.constant.MessageCode;
+import jp.co.aoterp.domain.annual.leave.AnnualLeave;
+import jp.co.aoterp.domain.annual.leave.AnnualLeaveRepository;
 import jp.co.aoterp.domain.member.MemberRepository;
 import jp.co.aoterp.domain.member.MemberSpecification;
 import jp.co.aoterp.domain.member.Members;
@@ -29,6 +31,7 @@ public class MemberService {
 
     private final MemberRepository memberRepository;
     private final SkillRepository skillRepository;
+    private final AnnualLeaveRepository annualLeaveRepository;
 
     @Transactional(readOnly = true)
     public Page<MemberResponseDto> findAllBy(MemberSearchRequestDto requestDto, Pageable pageable) {
@@ -69,7 +72,11 @@ public class MemberService {
 
     @Transactional
     public Long save(MemberSaveRequestDto requestDto) {
-        return memberRepository.save(requestDto.toEntity()).getId();
+        Long memberId = memberRepository.save(requestDto.toEntity()).getId();
+
+        // TODO: この方法が正しいのかを検討
+        annualLeaveRepository.save(new AnnualLeave(memberId, 0, 0));
+        return memberId;
     }
 
 

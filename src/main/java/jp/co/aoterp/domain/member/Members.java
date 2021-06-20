@@ -1,6 +1,7 @@
 package jp.co.aoterp.domain.member;
 
 import jp.co.aoterp.domain.BaseTimeEntity;
+import jp.co.aoterp.domain.annual.leave.AnnualLeave;
 import jp.co.aoterp.domain.skill.Skill;
 import lombok.Builder;
 import lombok.Getter;
@@ -66,6 +67,10 @@ public class Members extends BaseTimeEntity {
     @OneToMany(fetch = FetchType.LAZY)
     @JoinColumn(name = "member_id")
     private List<Skill> skills;
+
+    @OneToOne(fetch = FetchType.LAZY)
+    @JoinColumn(name = "member_id")
+    private AnnualLeave annualLeave;
 
     @Builder
     public Members(String email, String name, Integer employmentType, LocalDate enteredDate, Integer department, Integer position, LocalDate dateOfBirth, Integer sex, Integer nationality) {

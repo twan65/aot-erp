@@ -15,6 +15,7 @@ public class AnnualLeaveController {
 
     @GetMapping("/al/save")
     public String save(Model model) {
+        model.addAttribute("member", annualLeaveService.findByMemberId(1));
         return ViewNames.ANNUAL_LEAVE_SAVE_PATH;
     }
 }
